@@ -1,6 +1,9 @@
 # Compiled class file
 *.class
 
+#android studio (intellij)
+.idea
+
 # Log file
 *.log
 
