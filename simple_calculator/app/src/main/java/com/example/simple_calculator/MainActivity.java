@@ -7,10 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.util.Log;
 
 import java.util.Stack;
 
@@ -132,28 +131,21 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private int solve_operation(int x1, int x2, char operator) {
+    private double solve_operation(double x1, double x2, char operator) {
         switch (operator) {
             case '^': {
-                if (x2 == 0) {
-                    return 1;
-                }
-                int result = 1;
-                for (int i = 0; i < x2; i++) {
-                    result *= x1;
-                }
-                return result;
+                return Math.pow(x1, x2);
             }
             case '*':
                 return x1 * x2;
             case '/':
-                return x1 / x2;
+                return (double) x1 / x2;
             case '+':
                 return x1 + x2;
             case '-':
                 return x1 - x2;
             default:
-                return -1;
+                throw new IllegalArgumentException("Invalid Operator: " + operator);
         }
     }
 
@@ -178,13 +170,13 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < len; i++) {
             char c = buffer.charAt(i);
 
-            if (Character.isDigit(c)) {
-                while (i != len && Character.isDigit(buffer.charAt(i))) {
+            if (Character.isDigit(c) || c == '.') {
+                while (i < len && (Character.isDigit(buffer.charAt(i)) || buffer.charAt(i) == '.')) {
                     result.append(buffer.charAt(i));
                     i++;
                 }
                 result.append(' ');
-                i--;
+                i--; // negate the increment made on i 3 lines above
             } else if (c == '(') {
                 stack[++top] = '(';
             } else if (c == ')') {
@@ -208,47 +200,44 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String solve_rpn(String rpn) {
+        Log.d("DEBUG: ", rpn);
         int len = rpn.length();
-        Stack<Integer> solver = new Stack<>();
+        Stack<Double> solver = new Stack<>();
 
         for (int i = 0; i < len; i++) {
             char c = rpn.charAt(i);
             if (Character.isWhitespace(c)) continue;
-            if (Character.isDigit(c)) {
-                int temp = c - '0';
-                while (i + 1 < len && Character.isDigit(rpn.charAt(i + 1))) {
-                    temp = temp * 10 + (rpn.charAt(++i) - '0');
+
+            if (Character.isDigit(c) || c == '.') {
+                StringBuilder num = new StringBuilder();
+                while (i < len && (Character.isDigit(rpn.charAt(i)) || rpn.charAt(i) == '.')) {
+                    num.append(rpn.charAt(i));
+                    i++;
                 }
-                solver.push(temp);
+                i--; // step back one because the for loop will increment
+                solver.push(Double.parseDouble(num.toString()));
             }
 
             else if ("+-*/^".indexOf(c) != -1) {
-                if (c == '-' && i + 1 < len && Character.isDigit(rpn.charAt(i + 1))) {
-                    i++;
-                    int temp = rpn.charAt(i) - '0';
-                    while (i + 1 < len && Character.isDigit(rpn.charAt(i + 1))) {
-                        temp = temp * 10 + (rpn.charAt(++i) - '0');
-                    }
-                    temp = -temp;
-                    solver.push(temp);
-                    continue;
-                }
                 if (solver.size() < 2) {
-                    System.out.println("Invalid RPN expression: not enough operands");
+                    Log.e("ERROR: ","Invalid RPN expression: not enough operands");
                     return "Error";
                 }
-                int b = solver.pop();
-                int a = solver.pop();
-                int result = solve_operation(a, b, c);
+                double b = solver.pop();
+                double a = solver.pop();
+                double result = solve_operation(a, b, c);
                 solver.push(result);
             }
+
             else {
-                System.out.println("Unrecognized operator {" + c + "} in solveRPN()");
+                Log.e("ERROR:", "Unrecognized operator {" + c + "} in solveRPN()");
             }
         }
+
         if (solver.isEmpty()) {
             return "Error: empty stack";
         }
+
         return String.valueOf(solver.peek());
     }
 
