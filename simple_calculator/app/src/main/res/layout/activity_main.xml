@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context=".MainActivity">
 
     <Button
@@ -15,6 +16,7 @@
         android:layout_marginTop="151dp"
         android:layout_marginEnd="17dp"
         android:text="^"
+        android:backgroundTint="#007700"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewDisplay" />
@@ -27,6 +29,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="21dp"
         android:text="="
+        android:backgroundTint="#007700"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonClear"
         app:layout_constraintTop_toBottomOf="@+id/buttonBase10" />
@@ -39,6 +42,7 @@
         android:layout_marginTop="19dp"
         android:layout_marginBottom="19dp"
         android:text="+"
+        android:backgroundTint="#007700"
         app:layout_constraintBottom_toTopOf="@+id/buttonMinus"
         app:layout_constraintStart_toEndOf="@+id/button9"
         app:layout_constraintTop_toBottomOf="@+id/buttonExp" />
@@ -52,6 +56,8 @@
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="19dp"
         android:text="7"
+        android:backgroundTint="#2b2b2b"
+        android:textColor="#007700"
         app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toStartOf="@+id/button8"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,6 +72,8 @@
         android:layout_marginEnd="29dp"
         android:layout_marginBottom="19dp"
         android:text="9"
+        android:backgroundTint="#2b2b2b"
+        android:textColor="#007700"
         app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toStartOf="@+id/buttonPlus"
         app:layout_constraintStart_toEndOf="@+id/button8"
@@ -79,6 +87,8 @@
         android:layout_marginTop="215dp"
         android:layout_marginBottom="19dp"
         android:text="8"
+        android:backgroundTint="#2b2b2b"
+        android:textColor="#007700"
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintStart_toEndOf="@+id/button7"
         app:layout_constraintTop_toBottomOf="@+id/textViewDisplay" />
@@ -93,6 +103,8 @@
         android:rotationX="9"
         android:text="×10^"
         android:textSize="11sp"
+        android:backgroundTint="#2b2b2b"
+        android:textColor="#007700"
         app:layout_constraintEnd_toStartOf="@+id/buttonDivide"
         app:layout_constraintStart_toEndOf="@+id/buttonDecimal"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
@@ -104,6 +116,8 @@
         android:layout_marginStart="31dp"
         android:layout_marginTop="19dp"
         android:text="."
+        android:backgroundTint="#2b2b2b"
+        android:textColor="#007700"
         app:layout_constraintStart_toEndOf="@+id/button0"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
@@ -114,6 +128,7 @@
         android:layout_marginStart="29dp"
         android:layout_marginTop="19dp"
         android:text="-"
+        android:backgroundTint="#007700"
         app:layout_constraintStart_toEndOf="@+id/button6"
         app:layout_constraintTop_toBottomOf="@+id/buttonPlus" />
 
@@ -125,6 +140,7 @@
         android:layout_marginTop="22dp"
         android:layout_marginBottom="19dp"
         android:text="×"
+        android:backgroundTint="#007700"
         app:layout_constraintBottom_toTopOf="@+id/buttonDivide"
         app:layout_constraintStart_toEndOf="@+id/button3"
         app:layout_constraintTop_toBottomOf="@+id/buttonMinus" />
@@ -137,6 +153,8 @@
         android:layout_marginTop="19dp"
         android:layout_marginEnd="31dp"
         android:text="0"
+        android:backgroundTint="#2b2b2b"
+        android:textColor="#007700"
         app:layout_constraintEnd_toStartOf="@+id/buttonDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button1" />
@@ -148,6 +166,7 @@
         android:layout_marginStart="29dp"
         android:layout_marginTop="19dp"
         android:text="÷"
+        android:backgroundTint="#007700"
         app:layout_constraintStart_toEndOf="@+id/buttonBase10"
         app:layout_constraintTop_toBottomOf="@+id/buttonMultiply" />
 
@@ -159,6 +178,8 @@
         android:layout_marginTop="23dp"
         android:layout_marginBottom="19dp"
         android:text="2"
+        android:backgroundTint="#2b2b2b"
+        android:textColor="#007700"
         app:layout_constraintBottom_toTopOf="@+id/buttonDecimal"
         app:layout_constraintStart_toEndOf="@+id/button1"
         app:layout_constraintTop_toBottomOf="@+id/button5" />
@@ -172,6 +193,8 @@
         android:layout_marginEnd="29dp"
         android:layout_marginBottom="20dp"
         android:text="3"
+        android:backgroundTint="#2b2b2b"
+        android:textColor="#007700"
         app:layout_constraintBottom_toTopOf="@+id/buttonBase10"
         app:layout_constraintEnd_toStartOf="@+id/buttonMultiply"
         app:layout_constraintStart_toEndOf="@+id/button2"
@@ -186,6 +209,8 @@
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="19dp"
         android:text="1"
+        android:backgroundTint="#2b2b2b"
+        android:textColor="#007700"
         app:layout_constraintBottom_toTopOf="@+id/button0"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintStart_toStartOf="parent"
@@ -198,6 +223,8 @@
         android:layout_marginStart="31dp"
         android:layout_marginTop="19dp"
         android:text="5"
+        android:backgroundTint="#2b2b2b"
+        android:textColor="#007700"
         app:layout_constraintStart_toEndOf="@+id/button4"
         app:layout_constraintTop_toBottomOf="@+id/button8" />
 
@@ -209,6 +236,8 @@
         android:layout_marginTop="19dp"
         android:layout_marginEnd="29dp"
         android:text="6"
+        android:backgroundTint="#2b2b2b"
+        android:textColor="#007700"
         app:layout_constraintEnd_toStartOf="@+id/buttonMinus"
         app:layout_constraintStart_toEndOf="@+id/button5"
         app:layout_constraintTop_toBottomOf="@+id/button9" />
@@ -221,6 +250,8 @@
         android:layout_marginTop="19dp"
         android:layout_marginEnd="31dp"
         android:text="4"
+        android:backgroundTint="#2b2b2b"
+        android:textColor="#007700"
         app:layout_constraintEnd_toStartOf="@+id/button5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button7" />
@@ -234,6 +265,7 @@
         android:layout_marginEnd="26dp"
         android:layout_marginBottom="17dp"
         android:text="AC"
+        android:backgroundTint="#7d7d7d"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonEquals"
         app:layout_constraintStart_toStartOf="parent"
@@ -247,6 +279,8 @@
         android:layout_marginTop="130dp"
         android:layout_marginEnd="37dp"
         android:layout_marginBottom="151dp"
+        android:textColor="#ffffff"
+        android:textSize="58dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonExp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
